@@ -16,10 +16,17 @@
 
     .button {
         padding: 15px 32px;
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: black;
         background-color: #cea0e4;
         padding: 2rem;
+    }
+
+    #square {
+      margin-top: 100px;
+      width: 200px;
+      height: 200px;
+      background-color: #4eec91;
     }
     </style>
 </head>
@@ -27,7 +34,11 @@
 <body>
     <h1>webview.html</h1>
     <h2>普通のウェブページ</h2>
-    <a href="#" class="button" onclick="sendToNative();">ネイティブの HEADER をランダムな色にする</a>
+    <a href="#" class="button" onclick="sendToNative();">ネイティブのサークルをランダムな色にする</a>
+
+
+    <div id="square" />
+
     <script>
     function sendToNative() {
         var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
