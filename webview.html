@@ -23,10 +23,15 @@
     }
 
     #square {
-      margin-top: 100px;
+      margin-top: 4rem;
       width: 200px;
       height: 200px;
       background-color: #4eec91;
+    }
+
+    #number {
+      margin-top: 4rem;
+      font-size: 4rem;
     }
     </style>
 </head>
@@ -37,7 +42,11 @@
     <a href="#" class="button" onclick="sendToNative();">ネイティブのサークルをランダムな色にする</a>
 
 
-    <div id="square" />
+    <!-- <div id="square" /> -->
+
+    <div id="number">
+      0.0000000000000001
+    </div>
 
     <script>
     function sendToNative() {
