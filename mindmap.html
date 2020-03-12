@@ -95,7 +95,7 @@
         }
         </script>
         <script>
-        ! function() {
+        $(function() {
             var n = d3.select("#mindmap-svg"),
                 t = n.attr("width"),
                 a = n.attr("height"),
@@ -106,7 +106,7 @@
                     d.data(t), d.render()
                 }) : (d.data(t), d.render())
             })
-        }()
+        });
         </script>
 </body>
 
