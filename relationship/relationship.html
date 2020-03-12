@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href=./css/relationship.css rel=stylesheet>
+</head>
+
+<body>
+    <div class="container">
+        <div class=showcase>
+            <canvas height=600 width=1300></canvas>
+        </div>
+    </div>
+</body>
+<script src=js/d3.min.js> </script> <script src=relation.js></script>
+<script>
+function initColor(r) {
+    r[0].color = "#007FFF", r[1].color = "#A142FF", r[2].color = "#FF85C2", r[3].color = "#FFA142", r[4].color = "#FF4242";
+    for (var o = 5; o < r.length; o++) {
+        var t = d3.color(r[o % 4 + 1].color);
+        r[o].color = t.brighter(1.5).toString()
+    }
+}
+
+function initRadius(r) { r[0].radius = 18, r[1].radius = 14, r[2].radius = 14, r[3].radius = 14, r[4].radius = 14; for (var o = 5; o < r.length; o++) r[o].radius = 10 }
+var canvas = document.querySelector("canvas"),
+    width = 1300,
+    height = 600;
+d3.csv("./nodes.csv", function(r, o) {
+    for (var t = (o.length, 4), i = [], e = 1; e <= t; e++) i.push({ source: 0, target: e });
+    for (var e = t + 1; e < o.length; e++) i.push({ source: e % t + 1, target: e });
+    initColor(o), initRadius(o);
+    var s = new relation;
+    s.setNodes(o), s.setLinks(i), s.setCanvas(canvas), s.setSize(width, height), s.setRadius(12), s.setLinkLength(90), s.setCharge(-60), s.init(), s.run()
+})
+</script>
+
+<!-- </html>
+<!DOCTYPE html>
+<html lang=zh>
+<meta charset=utf-8>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<title>Relationship Visualization | 十二月咖啡馆工作室</title>
+<meta content=D3.js,4.0,relationship,关系图 name=keywords>
+<meta content="" name=description>
+<div class=container>
+    <div class=show-header>
+        <div class=show-header-left>Relationship Visualization</div>
+        <div class=show-header-right><a href=http://www.decembercafe.org/>DecemberCafe Studio</a> <br>2016.12.24</div>
+    </div>
+    <div class=showcase><canvas height=600 width=1300></canvas></div>
+    <div class=container_info>
+        <div class=show-info>
+            <h2>寄语</h2>
+            <p>这是关系图谱...<h2>开发环境</h2>
+                <ul>
+                    <li>D3.js v4.0<li>HTML5<li>JavaScript
+                </ul>
+                <h2>版权声明</h2>
+                <p>本作品版权属于<a href=http://www.decembercafe.org/ class=link_studio>十二月咖啡馆工作室</a>所有。未经许可，严禁转载或用于商业用途。
+        </div>
+        <div class=show-footer>Copyright(c) 2014-2016 <a href=http://www.decembercafe.org/>DecemberCafe Studio</a>. All Rights Reserved.</div> </div> <script>
+                ! function(e, t, a, n, c, o, s) { e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+                (e[c].q = e[c].q || []).push(arguments) }, e[c].l = 1 * new Date, o = t.createElement(a), s = t.getElementsByTagName(a)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s) }(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-83541150-1", "auto"), ga("send", "pageview")
+                </script> -->
