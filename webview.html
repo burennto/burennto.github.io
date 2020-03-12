@@ -7,16 +7,19 @@
     <style>
 
     h1 {
-      font-size: 10rem;
+      font-size: 8rem;
     }
 
     h2 {
-      font-size: 8rem;
+      font-size: 6rem;
     }
 
     .button {
         padding: 15px 32px;
-        font-size: 4rem;
+        font-size: 3rem;
+        color: black;
+        background-color: #cea0e4;
+        padding: 2rem;
     }
     </style>
 </head>
@@ -24,7 +27,7 @@
 <body>
     <h1>webview.html</h1>
     <h2>普通のウェブページ</h2>
-    <button class="button" onclick="sendToNative();">ネイティブの HEADER をランダムな色にする</button>
+    <a href="#" class="button" onclick="sendToNative();">ネイティブの HEADER をランダムな色にする</a>
     <script>
     function sendToNative() {
         var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
