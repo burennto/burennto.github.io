@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebView</title>
+    <style>
+    .button {
+        padding: 15px 32px;
+        font-size: 16px;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>webview.html</h2>
+    <h3>普通のウェブページ</h3>
+    <button class="button" onclick="sendToNative();">ネイティブの HEADER をランダムな色にする</button>
+    <script>
+    function sendToNative() {
+        var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        window.ReactNativeWebView.postMessage(color);
+    }
+    </script>
+</body>
+
+</html>
